@@ -90,7 +90,7 @@ def validUsefulProxy(proxy):
     try:
         r = requests.get(VALIDATOR_BASE_URL, proxies=proxies, timeout=15, verify=False)
         #//TEMP
-        if r.headers.get('content-type') != "application/json":
+        if "json" not in r.headers.get('content-type'):
             logger.info("proxy: {}, not normal proxy".format(proxy))
             return False
         if r.status_code == 200:
