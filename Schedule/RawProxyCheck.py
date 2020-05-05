@@ -67,7 +67,7 @@ def doRawProxyCheck():
     pm.db.clear()
 
     thread_list = list()
-    for index in range(2):
+    for index in range(20):
         thread_list.append(RawProxyCheck(proxy_queue, "thread_%s" % index))
 
     for thread in thread_list:

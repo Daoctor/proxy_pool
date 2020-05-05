@@ -66,7 +66,7 @@ def doUsefulProxyCheck():
         proxy_queue.put(_proxy)
 
     thread_list = list()
-    for index in range(2):
+    for index in range(10):
         thread_list.append(UsefulProxyCheck(proxy_queue, "thread_%s" % index))
 
     for thread in thread_list:
