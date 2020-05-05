@@ -13,7 +13,7 @@
 """
 import requests
 from lxml import etree
-
+from Config.setting import VALIDATOR_BASE_URL
 from Util.WebRequest import WebRequest
 
 
@@ -86,7 +86,7 @@ def validUsefulProxy(proxy):
         proxy = proxy.decode("utf8")
     proxies = {"http": "http://{proxy}".format(proxy=proxy)}
     try:
-        r = requests.get('http://www.baidu.com', proxies=proxies, timeout=10, verify=False)
+        r = requests.get(VALIDATOR_BASE_URL, proxies=proxies, timeout=10, verify=False)
         if r.status_code == 200:
             return True
     except Exception as e:

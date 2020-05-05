@@ -50,6 +50,8 @@ DATABASES = {
     }
 }
 
+VALIDATOR_BASE_URL = 'http://www.baidu.com'
+
 # register the proxy getter function
 
 PROXY_GETTER = [
