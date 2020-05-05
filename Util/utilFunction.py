@@ -15,7 +15,7 @@ import requests
 from lxml import etree
 from Config.setting import VALIDATOR_BASE_URL
 from Util.WebRequest import WebRequest
-from Util import LogHandler
+from Util.LogHandler import LogHandler
 
 logger = LogHandler("utilFunction")
 
