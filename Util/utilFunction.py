@@ -89,6 +89,10 @@ def validUsefulProxy(proxy):
     proxies = {"http": "http://{proxy}".format(proxy=proxy)}
     try:
         r = requests.get(VALIDATOR_BASE_URL, proxies=proxies, timeout=15, verify=False)
+        #//TEMP
+        if r.headers.get('content-type') != "application/json":
+            logger.info("proxy: {}, not normal proxy".format(proxy))
+            return False
         if r.status_code == 200:
             return True
         else:
