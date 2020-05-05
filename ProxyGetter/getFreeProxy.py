@@ -173,7 +173,11 @@ class GetFreeProxy(object):
         """
         url_list = [
             'https://www.kuaidaili.com/free/inha/',
-            'https://www.kuaidaili.com/free/intr/'
+            'https://www.kuaidaili.com/free/inha/2/',
+            'https://www.kuaidaili.com/free/inha/3/',
+            'https://www.kuaidaili.com/free/intr/',
+            'https://www.kuaidaili.com/free/intr/2/',
+            'https://www.kuaidaili.com/free/intr/3/'
         ]
         for url in url_list:
             tree = getHtmlTree(url)
@@ -202,7 +206,10 @@ class GetFreeProxy(object):
         :return:
         """
         urls = ['http://www.ip3366.net/free/?stype=1',
-                "http://www.ip3366.net/free/?stype=2"]
+                'http://www.ip3366.net/free/?stype=1&page=2',
+                'http://www.ip3366.net/free/?stype=1&page=3',
+                "http://www.ip3366.net/free/?stype=2",
+                ]
         request = WebRequest()
         for url in urls:
             r = request.get(url, timeout=10)
