@@ -36,6 +36,7 @@ PY3 = sys.version_info >= (3,)
 DB_TYPE = getenv('db_type', 'SSDB').upper()
 DB_HOST = getenv('db_host', '127.0.0.1')
 DB_PORT = getenv('db_port', 8888)
+VALIDATOR_BASE_URL = getenv('valiedator_base_url', 'http://www.baidu.com')
 DB_PASSWORD = getenv('db_password', '')
 
 
@@ -50,7 +51,6 @@ DATABASES = {
     }
 }
 
-VALIDATOR_BASE_URL = 'http://www.baidu.com'
 
 # register the proxy getter function
 
