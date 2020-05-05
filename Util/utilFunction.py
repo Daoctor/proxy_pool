@@ -15,7 +15,9 @@ import requests
 from lxml import etree
 from Config.setting import VALIDATOR_BASE_URL
 from Util.WebRequest import WebRequest
+from Util import LogHandler
 
+logger = LogHandler("utilFunction")
 
 def robustCrawl(func):
     def decorate(*args, **kwargs):
@@ -89,7 +91,10 @@ def validUsefulProxy(proxy):
         r = requests.get(VALIDATOR_BASE_URL, proxies=proxies, timeout=10, verify=False)
         if r.status_code == 200:
             return True
+        else:
+            logger.info("proxy: {}, status_code: {}".format(proxy, r.status_code))
     except Exception as e:
+        logger.info("proxy: {}, exception: {}".format(proxy, e))
         pass
     return False
 

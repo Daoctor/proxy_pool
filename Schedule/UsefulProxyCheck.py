@@ -47,6 +47,8 @@ class UsefulProxyCheck(ProxyManager, Thread):
             proxy_obj = Proxy.newProxyFromJson(proxy_str)
             proxy_obj, status = checkProxyUseful(proxy_obj)
             if status or proxy_obj.fail_count < FAIL_COUNT:
+                if (proxy_obj.fail_count < FAIL_COUNT):
+                    self.log.info("fail count less than 0, pass")
                 self.db.put(proxy_obj)
                 self.log.info('UsefulProxyCheck - {}  : {} validation pass'.format(self.name,
                                                                                    proxy_obj.proxy.ljust(20)))
